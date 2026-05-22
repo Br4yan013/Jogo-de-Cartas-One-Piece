@@ -1,0 +1,275 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #001529 0%, #003366 50%, #001529 100%);
+    background-size: 400% 400%;
+    animation: movimentoAgua 15s ease infinite;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    min-height: 100vh;
+    gap: 30px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* ELEMENTOS ANIMADOS */
+
+.sunny{
+    position: absolute;
+    width: clamp(90px, 15vw, 200px);
+    height: auto;
+    z-index: -1;
+    animation: sunnyMover 60s linear infinite;
+}
+
+.chapeu{
+    position: absolute;
+    width: clamp(120px, 18vw, 250px);
+    height: auto;
+    z-index: -1;
+    animation: chapeuVoar 10s infinite ease-in-out;
+}
+
+/* CARTÕES */
+
+.espaçoCarta,
+.divCentral{
+    background-color: #dbc9a2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: min(90vw, 450px);
+    min-height: 600px;
+
+    border-radius: 12px;
+    box-shadow: 0 10px 25px black;
+    padding: 20px;
+}
+
+.carta01,
+.carta02{
+    background-color: #634734;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 370px;
+    min-height: 520px;
+
+    border-radius: 6px;
+    box-shadow: 0 10px 25px black;
+
+    padding: 20px;
+    animation: cartaPulsar 3s infinite;
+}
+
+.carta01 img,
+.carta02 img{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+/* TEXTOS */
+
+.carta01 h1,
+.carta02 h1{
+    font-size: clamp(2rem, 5vw, 3rem);
+    cursor: default;
+    text-align: center;
+}
+
+.carta01 h2,
+.carta02 h2{
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    cursor: default;
+    text-align: center;
+}
+
+.carta01 h3,
+.carta02 h3{
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    cursor: default;
+    text-align: center;
+}
+
+/* DIV CENTRAL */
+
+.divCentral h1{
+    font-size: clamp(1.8rem, 5vw, 2.7rem);
+    text-align: center;
+    cursor: default;
+}
+
+.divCentral span{
+    color: rgb(255, 251, 0);
+}
+
+.divCentral h2{
+    margin-top: 120px;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    cursor: default;
+    text-align: center;
+}
+
+.divCentral button{
+    background-color: #e0d7c3;
+
+    width: min(250px, 80%);
+    height: 60px;
+
+    border: none;
+    border-radius: 30px;
+
+    font-size: clamp(1rem, 3vw, 2rem);
+
+    margin-top: 35px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.divCentral button:hover{
+    background-color: #e0ded9;
+    scale: 1.05;
+    transform: translateY(-3.5px);
+}
+
+.divCentral button:active{
+    background-color: black;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1024px){
+
+    body{
+        flex-direction: column;
+        gap: 25px;
+        padding: 30px 15px;
+    }
+
+    .espaçoCarta,
+    .divCentral{
+        width: 95%;
+        min-height: auto;
+    }
+
+    .carta01,
+    .carta02{
+        min-height: auto;
+    }
+
+    .divCentral h2{
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 600px){
+
+    body{
+        gap: 20px;
+        padding: 20px 10px;
+    }
+
+    .espaçoCarta,
+    .divCentral{
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .carta01,
+    .carta02{
+        padding: 15px;
+    }
+
+    .divCentral button{
+        width: 100%;
+        height: 55px;
+    }
+
+    .sunny{
+        opacity: 0.8;
+    }
+
+    .chapeu{
+        opacity: 0.7;
+    }
+}
+
+/* ANIMAÇÕES */
+
+@keyframes sunnyMover {
+    0%{
+        transform: translate(3000px , 300px);
+    }
+
+    100%{
+        transform: translate(-3000px , -300px);
+    }
+}
+
+@keyframes chapeuVoar {
+
+    0%,100%{
+        transform: translate(0px , 0px) rotate(0deg);
+    }
+
+    20%{
+        transform: translate(-100px , 500px);
+    }
+
+    40%{
+        transform: translate(-900px , 300px) rotate(45deg);
+    }
+
+    60%{
+        transform: translate(-1100px , -550px);
+    }
+
+    80%{
+        transform: translate(-300px , -400px);
+    }
+}
+
+@keyframes movimentoAgua {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes cartaPulsar {
+
+    0%,60%,100%{
+        scale: 1;
+    }
+
+    80%{
+        scale: 1.01;
+    }
+}   

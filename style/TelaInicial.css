@@ -1,0 +1,36 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(5, 8, 49);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 7rem;
+    cursor: default;
+    color: orange;
+}
+h2{
+    font-size: 8rem;
+    cursor: default;
+    color: orange;
+}
+button{
+    background-color: rgb(161, 161, 161);
+    width:400px;
+    height: 130px;
+    cursor: pointer;
+    border-radius: 60px;
+    border: none;
+    font-size: 4rem;
+    margin-top: 200px;
+}
+button:hover{transition: 0.2s; scale: 1.04; transform: translateY(-5px);}
